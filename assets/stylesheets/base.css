@@ -1,0 +1,74 @@
+@import "desktop.css";
+@import "mobile.css";
+@import "variables.css";
+
+body {
+  font-family: 'Bebas Neue';
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.bw, .color {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.color {
+  opacity: 0;
+  transition: opacity 0.8s;
+}
+
+.imdb {
+  color: var(--sun-orange);
+  display: block;
+  text-align: center;
+  letter-spacing: 0.085em;
+  text-decoration: none;
+}
+
+.menu-img .bw {
+  z-index: 1;
+}
+
+.menu-img .color {
+  z-index: 2;
+}
+
+.menu-item {
+  cursor: pointer;
+  position: relative;
+}
+
+.menu-title {
+  background:white;
+  color: black;
+  font-size: 27px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  line-height: 32px;
+  opacity: 0.6;
+  padding: 17px 0;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  z-index: 3;
+}
+
+.name-card {
+  background-color: var(--dark-gray);
+  box-sizing: border-box;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.275em;
+}
+
+.title-bar {
+  background-color: var(--sun-orange);
+  color: white;
+  font-family: 'Lato';
+  letter-spacing: 0.08em;
+}
