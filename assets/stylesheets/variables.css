@@ -4,5 +4,6 @@ body {
   --light-gray: #C4C4C4;
   --text-gray: #666666;
   --off-white: #F2F2F2;
+  --sun-fade: rgba(255, 255, 255, 0.35);
   --sun-orange: #DE8500;
 }

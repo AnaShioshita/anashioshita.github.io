@@ -20,6 +20,21 @@ body {
   transition: opacity 0.8s;
 }
 
+.portfolio-content {
+  display: flex;
+  justify-content: center;
+  margin-top: 53px;
+}
+
+.portfolio-content .images {
+  max-width: 1200px;
+  width: 100vw;
+}
+
+.portfolio-content img {
+  cursor: pointer;
+}
+
 .imdb {
   color: var(--sun-orange);
   display: block;
@@ -66,9 +81,140 @@ body {
   letter-spacing: 0.275em;
 }
 
+.portfolio-bar {
+  background-color: var(--sun-orange);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: Lato;
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 25px;
+  letter-spacing: 0.08em;
+  padding: 5px 0;
+  justify-content: space-evenly;
+}
+
+.portfolio-bar a:first-child {
+  margin-left: 0;
+}
+
+.portfolio-bar a:last-child {
+  margin-right: 0;
+}
+
+.portfolio-item {
+  color: var(--sun-fade);
+  cursor: pointer;
+  margin: 0 24px;
+  text-decoration: none;
+}
+
+.portfolio-item:hover, .portfolio-item.current {
+  color: white;
+}
+
+.portfolio-item.current {
+  color: white;
+}
+
 .title-bar {
   background-color: var(--sun-orange);
   color: white;
   font-family: 'Lato';
   letter-spacing: 0.08em;
+}
+
+.modal {
+  display: none;
+  left: 0;
+  height: 100%;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.modal.show {
+  display: block;
+  opacity: 1;
+}
+
+.modal-image {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.scrim {
+  background-color: var(--dark-gray);
+  height: 100%;
+  opacity: 0.6;
+  width: 100%;
+  z-index: 999;
+}
+
+.row {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.row .image:first-child {
+  margin-left: 0;
+  margin-top: 0;
+}
+
+.row .image:last-child {
+  margin-bottom: 0;
+  margin-right: 0;
+}
+
+.image {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.wrapped .image {
+  margin: 10px 0;
+}
+
+.image img {
+  object-fit: scale-down;
+  max-width: 100vw;
+  min-width: 0;
+  height: 100%;
+}
+
+.row.wrapped:first-child {
+  margin-top: 0;
+}
+
+.row.wrapped:last-child {
+  margin-bottom: 0;
+}
+
+.row.wrapped img {
+  height: auto;
+}
+
+
+@media only screen and (min-width:1200px) {
+  .portfolio-bar {
+    padding-left: calc(50% - 600px);
+    padding-right: calc(50% - 600px);
+  }
 }

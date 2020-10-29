@@ -12,13 +12,13 @@ window.addEventListener('DOMContentLoaded', () => {
   appendMenu();
   const initialActive = menus[3].children[0];
 	centerAround(initialActive, 'auto');
-  throttledScroller(initialActive);
+  setActiveMenu(initialActive);
   hamburgerButton = document.querySelector('#hamburger-button');
   hamburgerItems = document.querySelectorAll('.hamburger-item');
   hamburgerMenu = document.querySelector('#hamburger-menu');
 	window.addEventListener('scroll', throttledScroller);
   hamburgerButton.addEventListener('click', toggleHamburgerMenu);
-  Array.from(hamburgerItems).forEach(el => el.addEventListener('click', highlightAndClose(el)))
+  Array.from(hamburgerItems).forEach(el => el.addEventListener('click', highlightAndClose(el)));
 });
 
 function appendMenu() {
