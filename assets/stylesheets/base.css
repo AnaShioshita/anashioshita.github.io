@@ -183,6 +183,13 @@ body {
   margin-right: 0;
 }
 
+.stack-row {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+}
+
 .image {
   align-items: center;
   display: flex;
