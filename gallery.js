@@ -59,7 +59,9 @@ function hideImageModal() {
 
 function showImageModal(el) {
 	return function () {
-		imageContainer.innerHTML = `<img src='${el.src}'>`;
+		console.log(el.src);
+		
+		imageContainer.innerHTML = `<img src='${el.src.replace("THUMBNAIL", "FULLSIZE")}'>`;
 		modalContainer.classList.add("show");
 	};
 }
