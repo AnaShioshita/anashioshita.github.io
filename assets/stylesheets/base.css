@@ -222,6 +222,10 @@ body {
   height: auto;
 }
 
+video {
+  cursor: pointer;
+}
+
 
 @media only screen and (min-width:1200px) {
   .portfolio-bar {

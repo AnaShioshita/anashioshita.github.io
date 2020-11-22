@@ -6,9 +6,14 @@ window.addEventListener("DOMContentLoaded", () => {
 	modalContainer = document.querySelector(".modal");
 	imageContainer = document.querySelector(".modal-image");
 	scrim = document.querySelector(".scrim");
-	Array.from(document.querySelectorAll(".images img")).forEach((el) => {
-		el.addEventListener("click", showImageModal(el));
-	});
+	Array.from(document.querySelectorAll(".images img")).forEach((el) =>
+		el.addEventListener("click", showImageModal(el))
+	);
+	Array.from(document.querySelectorAll("video")).forEach((el) => {
+		console.log(el);
+		el.addEventListener("click", showVideoModal(el));
+	}
+	);
 	modalContainer.addEventListener("click", hideImageModal);
 });
 
@@ -80,6 +85,15 @@ function showImageModal(el) {
 		)}'>`;
 		modalContainer.classList.add("show");
 	};
+}
+
+function showVideoModal(el) {
+	return function() {
+		const videoEl = el.cloneNode();
+		videoEl.width = 0.9 * window.innerWidth;
+		imageContainer.appendChild(videoEl);
+		modalContainer.classList.add("show");
+	}
 }
 
 function waitForImagesToLoad() {
