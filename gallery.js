@@ -27,12 +27,17 @@ function calculateAR(item) {
   const stackRows = item.querySelectorAll(".stack-row");
   if (stackRows.length > 0) {
 		return item.dataset.baseHeight / item.dataset.baseWidth;
-  };
-	const imgs = item.querySelectorAll("img");
+	};
+	if (item.tagName === 'VIDEO') {
+		return item.videoHeight / item.videoWidth
+	}
+	const imgs = item.querySelectorAll("img, video");
 	if (imgs.length > 1) {
 		const totalHeight = Array.from(imgs).reduce(
-			(total, img) => {
-				return total + img.naturalHeight * styleWidth / img.naturalWidth;
+			(total, media) => {
+				const mediaWidth = media.videoWidth || media.naturalWidth;
+				const mediaHeight = media.videoHeight || media.naturalHeight;
+				return total + mediaHeight * styleWidth / mediaWidth;
 			}
 			,
 			0
@@ -102,13 +107,20 @@ function showVideoModal(el) {
 
 function waitForImagesToLoad() {
 	return Promise.all(
-		Array.from(document.images)
-			.filter((img) => !img.complete)
+		Array.from(document.querySelectorAll("video"))
 			.map(
-				(img) =>
-					new Promise((resolve) => {
-						img.onload = img.onerror = resolve;
-					})
+				(vid) => new Promise((resolve) => {
+					vid.onloadedmetadata = vid.onerror = resolve;
+				})
+			).concat(
+				Array.from(document.images)
+					.filter((img) => !img.complete)
+					.map(
+						(img) =>
+							new Promise((resolve) => {
+								img.onload = img.onerror = resolve;
+							})
+					)
 			)
 	);
 }
