@@ -18,7 +18,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function calculateAR(item) {
-	let styleWidth, styleHeight, widthScale;
+	let styleWidth;
 	if (item.style.width.includes("%")) {
 		styleWidth = images.clientWidth * parseFloat(item.style.width) / 100;
 	} else {
@@ -50,6 +50,10 @@ function calculateAR(item) {
 function calculateHeight(row) {
 	let a, b, c, d;
 	const ars = Array.from(row.children).map((item) => calculateAR(item));
+	if (row.dataset.peek) {
+		console.log(row);
+		console.log(ars);
+	}
 	const width = images.clientWidth;
 	switch (ars.length) {
 		case 1:
