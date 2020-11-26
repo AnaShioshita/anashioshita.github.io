@@ -104,6 +104,7 @@ function showVideoModal(el) {
 	return function() {
 		const videoEl = el.cloneNode();
 		videoEl.width = 0.9 * window.innerWidth;
+		videoEl.controls = true;
 		imageContainer.appendChild(videoEl);
 		modalContainer.classList.add("show");
 	}
