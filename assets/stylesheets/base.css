@@ -14,6 +14,43 @@ body {
   padding: 0;
 }
 
+.about-me {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-family: 'Lato';
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 26.4px;
+  margin: 85px 0 45px 0;
+}
+
+.about-me-img {
+  background-color: var(--sun-orange);
+  max-width: 507px;
+}
+
+.about-me-img img {
+  transform: translate(21px, 21px);
+  width: 100%;
+}
+
+.about-me-ana:before {
+  content: "";
+  background-color: #000;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: -30px;
+}
+
+.about-me-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 482px;
+}
+
 .bw, .color {
   height: 100%;
   position: absolute;
