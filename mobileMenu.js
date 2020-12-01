@@ -2,8 +2,6 @@ let currentActive,
   hamburgerButton,
   hamburgerItems,
   hamburgerMenu,
-  infoHighlight,
-  infoItems,
   menuItems,
   menuNames,
   menus,
@@ -12,13 +10,6 @@ const mobileMenuItemHeight = 180;
 const throttledScroller = throttle(setActiveMenu, 50);
 
 window.addEventListener("DOMContentLoaded", () => {
-  infoItems = document.querySelectorAll(".info-bar .info-item");
-  infoHighlight = document.querySelector("#info-highlight");
-  Array.from(infoItems).forEach((el) => {
-    el.addEventListener("mouseover", (e) => setHoverItem(e.target));
-    el.addEventListener("mouseout", unsetHoverItem);
-  });
-  placeInfoHighlight();
   if (window.innerWidth > 480) return;
   findImages();
   menuNode = document.querySelector(".menu");
@@ -35,7 +26,7 @@ window.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", throttledScroller);
   hamburgerButton.addEventListener("click", toggleHamburgerMenu);
   Array.from(hamburgerItems).forEach((el) =>
-  el.addEventListener("click", highlightAndClose(el))
+    el.addEventListener("click", highlightAndClose(el))
   );
 });
 
@@ -95,11 +86,6 @@ function highlightAndClose(el) {
   };
 }
 
-function placeInfoHighlight() {
-  const itemPos = document.querySelector(".info-item.active").getBoundingClientRect().x;
-  infoHighlight.style.left = `${itemPos}px`;
-}
-
 function prependMenu() {
   document
     .querySelector(".content")
@@ -130,21 +116,6 @@ function setActiveMenu(item = null) {
     centerAround(menuItem);
   }
 }
-
-function setHoverItem(newActiveItem) {
-	infoItems.forEach(item => item.classList.remove("active"));
-  newActiveItem.classList.add("active");
-  placeInfoHighlight();
-}
-
-function unsetHoverItem() {
-	infoItems.forEach((item) => item.classList.remove("active"));
-  Array.from(infoItems).find(item => 
-    item.href.match(window.location.pathname)
-  ).classList.add("active");
-  placeInfoHighlight();
-}
-
 
 function throttle(fn, wait) {
   var time = Date.now();

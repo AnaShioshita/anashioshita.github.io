@@ -39,14 +39,15 @@
     letter-spacing: 0.05em;
     margin: 36px auto 0 auto;
     position: relative;
+    z-index: 2;
   }
 
   .info-highlight {
     background-color: var(--sun-orange);
+    display: none;
     height: 100%;
     position: absolute;
     left: 0;
-    transition: 0.2s;
     transition-timing-function: cubic-bezier(.4, 0,.2, 1);
     width: 158px;
     z-index: 1;
