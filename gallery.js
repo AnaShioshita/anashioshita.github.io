@@ -1,8 +1,15 @@
-let modalContainer, imageContainer, images, rows, scrim;
+import { placeInfoHighlight, placePortfolioHighlight } from '/navMenu.js';
+
+let modalContainer, imageContainer, images, loadingGif, rows, scrim;
+
 window.addEventListener("DOMContentLoaded", () => {
 	rows = document.querySelectorAll(".row");
-	waitForImagesToLoad().then(setRowHeights);
-	window.addEventListener("resize", setRowHeights);
+	loadingGif = document.querySelector(".loading-gif");
+	waitForImagesToLoad().then(() => {
+		setRowHeights();
+		loadingGif.style.display = 'none';
+	});
+	window.addEventListener("resize", repaint);
 	images = document.querySelector(".images");
 	modalContainer = document.querySelector(".modal");
 	imageContainer = document.querySelector(".modal-image");
@@ -15,6 +22,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	}
 	);
 	modalContainer.addEventListener("click", hideImageModal);
+	placePortfolioHighlight();
 });
 
 function calculateAR(item) {
@@ -50,10 +58,6 @@ function calculateAR(item) {
 function calculateHeight(row) {
 	let a, b, c, d;
 	const ars = Array.from(row.children).map((item) => calculateAR(item));
-	if (row.dataset.peek) {
-		console.log(row);
-		console.log(ars);
-	}
 	const width = images.clientWidth;
 	switch (ars.length) {
 		case 1:
@@ -74,8 +78,14 @@ function calculateHeight(row) {
 	}
 }
 
+function repaint() {
+	placePortfolioHighlight();
+	placeInfoHighlight();
+	setRowHeights();
+}
+
 function setRowHeight(row) {
-	if (window.innerWidth >= 1200 && !row.style.height) {
+	if (window.innerWidth >= 1200) {
 		row.classList.remove("wrapped");
 		row.style.height = row.dataset.height || `${calculateHeight(row)}px`;
 	} else if (window.innerWidth < 1200) {

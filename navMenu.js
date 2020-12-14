@@ -1,4 +1,7 @@
 let activeTab,
+  hamburgerButton,
+  hamburgerItems,
+  hamburgerMenu,
   infoItems,
   infoHighlight,
   portfolioBar,
@@ -7,7 +10,34 @@ let activeTab,
   portfolioCoverLeft,
   portfolioCoverRight;
 
+export const placeInfoHighlight = () => {
+  const item = document.querySelector(".info-item.active");
+  const rect = item.getBoundingClientRect();
+  const itemPos = rect.x;
+  infoHighlight.style.left = `${itemPos}px`;
+};
+
+export const placePortfolioHighlight = () => {
+  if (!portfolioHighlight) return;
+  const { width, x } = document
+    .querySelector(".portfolio-item.current")
+    .getBoundingClientRect();
+  portfolioHighlight.style.width = `${width}px`;
+  portfolioHighlight.style.left = `${Math.floor(x)}.px`;
+};
+
+window.addEventListener("load", () => {
+  placeInfoHighlight();
+  if (portfolioBar) {
+    revealPortfolioBar();
+    portfolioHighlight.style.transition = "0.2s";
+  }
+})
+
 window.addEventListener("DOMContentLoaded", () => {
+  hamburgerButton = document.querySelector("#hamburger-button");
+  hamburgerItems = document.querySelectorAll(".hamburger-item");
+  hamburgerMenu = document.querySelector("#hamburger-menu");
   infoItems = document.querySelectorAll(".info-bar .info-item");
   infoHighlight = document.querySelector("#info-highlight");
   portfolioBar = document.querySelector(".portfolio-bar");
@@ -24,31 +54,37 @@ window.addEventListener("DOMContentLoaded", () => {
     el.addEventListener("mouseover", () => setPortfolioItem(el));
     el.addEventListener("mouseout", unsetPortfolioItem);
   });
-  placeInfoHighlight();
   infoHighlight.style.display = "block";
   infoHighlight.style.transition = "0.2s";
-  if (portfolioBar) {
-    placePortfolioHighlight();
-    revealPortfolioBar();
-    portfolioHighlight.style.transition = "0.2s";
-  }
+  placeInfoHighlight();
+  hamburgerButton.addEventListener("click", toggleHamburgerMenu);
+  Array.from(hamburgerItems).forEach((el) =>
+    el.addEventListener("click", highlightAndClose(el))
+  );
 });
 
-function placeInfoHighlight() {
-  const itemPos = document
-    .querySelector(".info-item.active")
-    .getBoundingClientRect().x;
-  infoHighlight.style.left = `${itemPos}px`;
+function closeHamburgerMenu() {
+  document.querySelector("#hamburger-menu").classList.remove("open");
 }
 
-function placePortfolioHighlight() {
-  const itemPos = document
-    .querySelector(".portfolio-item.current")
-    .getBoundingClientRect().x;
-  portfolioHighlight.style.left = `${Math.floor(itemPos)}.px`;
+function highlightAndClose(el) {
+  return function (e) {
+    el.classList.add("selected");
+    setTimeout(function () {
+      toggleHamburgerMenu();
+      setTimeout(function () {
+        window.location.pathname = el.dataset.url;
+      }, 200);
+    }, 200);
+  };
+}
+
+function openHamburgerMenu() {
+  document.querySelector("#hamburger-menu").classList.add("open");
 }
 
 function revealPortfolioBar() {
+  if (window.innerWidth < 481) return;
   portfolioHighlight.style.display = "block";
   const { left, right } = activeTab.getBoundingClientRect();
   portfolioCoverLeft.style.right = `${portfolioBar.clientWidth - left}px`;
@@ -59,6 +95,7 @@ function revealPortfolioBar() {
     portfolioCoverRight.style.transition = "0.2s";
     portfolioCoverLeft.style.right = "100%";
     portfolioCoverRight.style.left = "100%";
+    placePortfolioHighlight();
   }, 150);
 }
 
@@ -72,6 +109,15 @@ function setPortfolioItem(newCurrentItem) {
   portfolioItems.forEach((item) => item.classList.remove("current"));
   newCurrentItem.classList.add("current");
   placePortfolioHighlight();
+}
+
+
+function toggleHamburgerMenu() {
+  if (Array.from(hamburgerMenu.classList).includes("open")) {
+    hamburgerMenu.classList.remove("open");
+  } else {
+    hamburgerMenu.classList.add("open");
+  }
 }
 
 function unsetHoverItem() {
@@ -94,9 +140,6 @@ function unsetHoverItem() {
 
 function unsetPortfolioItem() {
   portfolioItems.forEach((item) => item.classList.remove("current"));
-  const item = Array.from(portfolioItems).find(({ href }) =>
-    href.match(window.location.pathname)
-  );
   Array.from(portfolioItems)
     .find(({ href }) => href.match(window.location.pathname))
     .classList.add("current");

@@ -1,4 +1,12 @@
 @media only screen and (max-width:480px) {
+  .about-me-img {
+    display: none;
+  }
+
+  .about-me-right {
+    margin: 0 15px;
+  }
+
   .active .color {
     opacity: 1;
     transform: scale(1.2);
@@ -18,6 +26,11 @@
     overflow:hidden;
   }
 
+  .contact-info span {
+    text-align: center;
+    width: 50%;
+  }
+
   .hamburger {
     align-items: center;
     display: flex;
@@ -28,9 +41,10 @@
   }
 
   .hamburger-button {
-    position: fixed;
-    right: 9px;
-    top: 70px;
+    display: inline-block;
+    position: absolute;
+    right: 11px;
+    top: 6px;
     z-index: 5;
   }
 
@@ -83,7 +97,7 @@
     display: block;
     height: 100vh;
     width: 100vw;
-    padding-top: 64px;
+    padding-top: 117px;
     position: fixed;
     left: 100vw;
     transition: 0.4s;
@@ -95,6 +109,10 @@
     left: 0;
     transition: 0.2s;
     transition-timing-function: cubic-bezier(.4, 0,.2, 1);
+  }
+
+  .loading-gif img {
+    transform: translateY(30vh) scale(0.5);
   }
 
   .menu-item img {
@@ -220,6 +238,7 @@
   }
 
   .name-card {
+    display: inline-block;
     font-size: 35px;
     height: 42px;
     letter-spacing: 0.275em;
@@ -229,8 +248,65 @@
     width: calc(100vw - 56px);
   }
 
+  .name-header {
+    position: relative;
+  }
+
   .nav {
+    padding-top: 41px;
+  }
+
+  .nav.sticky {
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    z-index: 4;
+  }
+
+  .nav .info-bar {
     display: none;
+  }
+
+  .nav .portfolio-bar {
+    display: none;
+  }
+
+  .resume {
+    flex-direction: column;
+  }
+
+  .resume .resume-divider {
+    margin: 0 15px 35px 15px;
+  }
+
+  .resume .experience {
+    margin: 21px 15px 0 15px;
+  }
+
+  .resume .resume-header, .resume .resume-note {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  
+  .resume .resume-left {
+    background-color: #fff;
+    order: 2;
+    padding: 0;
+    width: 100%;
+  }
+
+  .resume .resume-header {
+    margin-top: 15px;
+  }
+
+  .resume .resume-left .resume-header {
+    text-align: left;
+  }
+
+  .resume .resume-right {
+    order: 1;
+    padding: 0;
+    width: 100%;
   }
 
   .sub-nav {

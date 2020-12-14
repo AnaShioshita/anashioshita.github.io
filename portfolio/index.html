@@ -7,30 +7,17 @@
   <meta name="author" content="Ana Shioshita">
   <meta name="description" content="Ana Shioshita">
   <title>Ana Shioshita</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=block" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <link rel="stylesheet" href="../assets/stylesheets/base.css">
+  <link rel="stylesheet" href="assets/stylesheets/base.css">
 </head>
 
 <body>
-  <script src="../mobileMenu.js"></script>
-  <script src="../navMenu.js"></script>
+  <script type="module" src="theWheel.js"></script>
+  <script type="module" src="navMenu.js"></script>
   <div class="content">
-    <div id="hamburger-button" class="hamburger-button">
-      <svg viewBox="0 0 38 29" width="38" height="29" class="hamburger-icon">
-        <rect width="38" height="5"></rect>
-        <rect y="12" width="38" height="5"></rect>
-        <rect y="24" width="38" height="5"></rect>
-      </svg>
-    </div>
     <div id="hamburger-menu" class="hamburger-menu">
-      <div class="name-card">
-        ANA SHIOSHITA
-      </div>
-      <div class="title-bar">
-        Graphic Designer
-      </div>
       <div class="hamburger-items">
         <div class="hamburger-item info-item" data-url="about-me/">ABOUT ME</div>
         <div class="hamburger-item info-item" data-url="portfolio/">PORTFOLIO</div>
@@ -38,9 +25,18 @@
         <div class="hamburger-item info-item" data-url="resume/">RESUME</div>
       </div>
     </div>
-    <div class="nav">
-      <div class="name-card">
-        ANA SHIOSHITA
+    <div class="nav sticky">
+      <div class="name-header">
+        <div class="name-card">
+          ANA SHIOSHITA
+        </div>
+        <div id="hamburger-button" class="hamburger-button">
+          <svg viewBox="0 0 38 29" width="38" height="29" class="hamburger-icon">
+            <rect width="38" height="5"></rect>
+            <rect y="12" width="38" height="5"></rect>
+            <rect y="24" width="38" height="5"></rect>
+          </svg>
+        </div>
       </div>
       <div class="title-bar-container">
         <div class="title-bar">
@@ -53,19 +49,6 @@
         <a class="info-item active" href="/portfolio/">PORTFOLIO</a>
         <a class="info-item" href="/contact/">CONTACT</a>
         <a class="info-item" href="/resume/">RESUME</a>
-      </div>
-      <div class="portfolio-bar">
-        <div class="portfolio-cover-left"></div>
-        <div class="portfolio-highlight" id="portfolio-highlight"></div>
-        <a class="portfolio-item" href="/props/">Props</a>
-        <a class="portfolio-item" href="/signage/">Signage</a>
-        <a class="portfolio-item" href="/screens/">Screens</a>
-        <a class="portfolio-item" href="/set-dec/">Set Dec</a>
-        <a class="portfolio-item" href="/illustration/">Illustration</a>
-        <a class="portfolio-item" href="/vehicles/">Vehicles</a>
-        <a class="portfolio-item" href="/photoshop/">Photoshop</a>
-        <a class="portfolio-item" href="/misc/">Odds and Ends</a>
-        <div class="portfolio-cover-right"></div>
       </div>
     </div>
     <div class="menu">
@@ -80,7 +63,7 @@
       </div>
 
       <div class="menu-item signage">
-        <a class="portfolio-link" href="/signage/">
+        <a class="portfolio-link" href ="/signage/">
           <div class="menu-title">Signage</div>
           <div class="menu-img signage">
             <div class="bw"></div>

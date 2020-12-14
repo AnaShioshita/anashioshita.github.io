@@ -1,87 +1,99 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1"
+    />
+    <meta name="author" content="Ana Shioshita" />
+    <meta name="description" content="Ana Shioshita" />
+    <title>Ana Shioshita</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=block"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-  <meta name="author" content="Ana Shioshita">
-  <meta name="description" content="Ana Shioshita">
-  <title>Ana Shioshita</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/stylesheets/base.css" />
+  </head>
 
-  <link rel="stylesheet" href="../assets/stylesheets/base.css">
-</head>
-
-<body>
-  <script src="../navMenu.js"></script>
-  <div class="content">
-    <div id="hamburger-button" class="hamburger-button">
-      <svg viewBox="0 0 38 29" width="38" height="29" class="hamburger-icon">
-        <rect width="38" height="5"></rect>
-        <rect y="12" width="38" height="5"></rect>
-        <rect y="24" width="38" height="5"></rect>
-      </svg>
-    </div>
-    <div id="hamburger-menu" class="hamburger-menu">
-      <div class="name-card">
-        ANA SHIOSHITA
-      </div>
-      <div class="title-bar">
-        Graphic Designer
-      </div>
-      <div class="hamburger-items">
-        <div class="hamburger-item info-item" data-url="about-me/">ABOUT ME</div>
-        <div class="hamburger-item info-item" data-url="portfolio/">PORTFOLIO</div>
-        <div class="hamburger-item info-item" data-url="contact/">CONTACT</div>
-        <div class="hamburger-item info-item" data-url="resume/">RESUME</div>
-      </div>
-    </div>
-    <div class="nav">
-      <div class="name-card">
-        ANA SHIOSHITA
-      </div>
-      <div class="title-bar-container">
-        <div class="title-bar">
-          Graphic Designer
+  <body>
+    <script type="module" src="/navMenu.js"></script>
+    <div class="content">
+      <div id="hamburger-menu" class="hamburger-menu">
+        <div class="name-card">ANA SHIOSHITA</div>
+        <div class="title-bar">Graphic Designer</div>
+        <div class="hamburger-items">
+          <div class="hamburger-item info-item" data-url="about-me/">
+            ABOUT ME
+          </div>
+          <div class="hamburger-item info-item" data-url="portfolio/">
+            PORTFOLIO
+          </div>
+          <div class="hamburger-item info-item" data-url="contact/">
+            CONTACT
+          </div>
+          <div class="hamburger-item info-item" data-url="resume/">RESUME</div>
         </div>
       </div>
-      <div class="info-bar">
-        <div class="info-highlight" id="info-highlight"></div>
-        <a class="info-item active" href="/about-me/">ABOUT ME</a>
-        <a class="info-item" href="/portfolio/">PORTFOLIO</a>
-        <a class="info-item" href="/contact/">CONTACT</a>
-        <a class="info-item" href="/resume/">RESUME</a>
+      <div class="nav">
+        <div class="name-header">
+          <div class="name-card">ANA SHIOSHITA</div>
+          <div id="hamburger-button" class="hamburger-button">
+            <svg
+              viewBox="0 0 38 29"
+              width="38"
+              height="29"
+              class="hamburger-icon"
+            >
+              <rect width="38" height="5"></rect>
+              <rect y="12" width="38" height="5"></rect>
+              <rect y="24" width="38" height="5"></rect>
+            </svg>
+          </div>
+        </div>
+        <div class="title-bar-container">
+          <div class="title-bar">Graphic Designer</div>
+        </div>
+        <div class="info-bar">
+          <div class="info-highlight" id="info-highlight"></div>
+          <a class="info-item active" href="/about-me/">ABOUT ME</a>
+          <a class="info-item" href="/portfolio/">PORTFOLIO</a>
+          <a class="info-item" href="/contact/">CONTACT</a>
+          <a class="info-item" href="/resume/">RESUME</a>
+        </div>
       </div>
       <div class="about-me">
         <div class="about-me-left">
           <div class="about-me-img">
-            <img src="/assets/ABOUT ME/Ana Photo.jpg">
+            <img src="/assets/ABOUT ME/Ana Photo.jpg" />
           </div>
         </div>
         <div style="width: 72px"></div>
         <div class="about-me-right">
+          <p class="greeting">Hi, I’m Ana.</p>
           <p>
-            Hi, I’m Ana. 
+            I’m a graphic designer in film, currently working in New York City.
+            I love that I essentially get to play make believe for a living.
+            Everything from doing the research so that I know something is as
+            real and accurate as can be, to designing things that very much do
+            not exist in the real world.
           </p>
           <p>
-            I’m a graphic designer in film, currently working in New York City. I love that I essentially get to play make believe for a living. Everything from doing the research so that I know something is as real and accurate as can be, to designing things that very much do not exist in the real world.
-          </p>
-          <p>
-            When I’m not working I like to be hiking, climbing, playing board games, building things or napping.
+            When I’m not working I like to be hiking, climbing, playing board
+            games, building things or napping.
           </p>
         </div>
       </div>
     </div>
-  </div>
-  <div class="footer">
-    <a class="imdb" href="">IMDB</a>
-    <div class="contact-info">
-      <span>oriana.shioshita@gmail.com</span>
-      <span>303-709-7923</span>
+    <div class="footer">
+      <a class="imdb" href="">IMDB</a>
+      <div class="contact-info">
+        <span>oriana.shioshita@gmail.com</span>
+        <span>303-709-7923</span>
+      </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>

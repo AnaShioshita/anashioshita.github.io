@@ -1,16 +1,14 @@
 let currentActive,
-  hamburgerButton,
-  hamburgerItems,
-  hamburgerMenu,
   menuItems,
   menuNames,
   menus,
   menuNode;
 const mobileMenuItemHeight = 180;
-const throttledScroller = throttle(setActiveMenu, 50);
+const throttledScroller = throttle(setActiveMenu, 100);
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
   if (window.innerWidth > 480) return;
+  window.scrollTo({ behavior: 'auto', top: 0 });
   findImages();
   menuNode = document.querySelector(".menu");
   prependMenu();
@@ -20,14 +18,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const initialActive = menus[3].children[0];
   centerAround(initialActive, "auto");
   setActiveMenu(initialActive);
-  hamburgerButton = document.querySelector("#hamburger-button");
-  hamburgerItems = document.querySelectorAll(".hamburger-item");
-  hamburgerMenu = document.querySelector("#hamburger-menu");
   window.addEventListener("scroll", throttledScroller);
-  hamburgerButton.addEventListener("click", toggleHamburgerMenu);
-  Array.from(hamburgerItems).forEach((el) =>
-    el.addEventListener("click", highlightAndClose(el))
-  );
 });
 
 function activeMenuItem() {
@@ -43,10 +34,6 @@ function activeMenuItem() {
 function appendMenu() {
   document.querySelector(".content").append(menus[0].cloneNode(true));
   findImages();
-}
-
-function closeHamburgerMenu() {
-  document.querySelector("#hamburger-menu").classList.remove("open");
 }
 
 function centerAround(el, behavior = "smooth") {
@@ -67,23 +54,10 @@ function findImages() {
     el.addEventListener("click", (e) => {
       if (!Array.from(el.parentElement.classList).includes("active")) {
         e.preventDefault();
-        centerAround(el);
+        setActiveMenu(el);
       }
     });
   });
-}
-
-
-function highlightAndClose(el) {
-  return function (e) {
-    el.classList.add("selected");
-    setTimeout(function () {
-      toggleHamburgerMenu();
-      setTimeout(function () {
-        window.location.pathname = el.dataset.url;
-      }, 200);
-    }, 200);
-  };
 }
 
 function prependMenu() {
@@ -94,10 +68,6 @@ function prependMenu() {
       document.querySelector(".mobile-menu")
     );
   findImages();
-}
-
-function openHamburgerMenu() {
-  document.querySelector("#hamburger-menu").classList.add("open");
 }
 
 function setActiveMenu(item = null) {
@@ -115,6 +85,9 @@ function setActiveMenu(item = null) {
   if (currentActive && currentActive.classList[1] !== menuItem.classList[1]) {
     centerAround(menuItem);
   }
+  if (item) {
+    centerAround(item);
+  }
 }
 
 function throttle(fn, wait) {
@@ -125,12 +98,4 @@ function throttle(fn, wait) {
       time = Date.now();
     }
   };
-}
-
-function toggleHamburgerMenu() {
-  if (Array.from(hamburgerMenu.classList).includes("open")) {
-    hamburgerMenu.classList.remove("open");
-  } else {
-    hamburgerMenu.classList.add("open");
-  }
 }

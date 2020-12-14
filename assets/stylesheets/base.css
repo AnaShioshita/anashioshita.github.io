@@ -3,8 +3,17 @@
 @import "variables.css";
 
 @font-face {
+  font-display: block;
   font-family: 'Bebas Neue';
   src: url("/assets/fonts/BebasNeue-Regular.otf");
+}
+
+@font-face {
+  font-display: block;
+  font-family: 'Roboto';
+  font-style: 'normal';
+  font-weight: '400';
+  src: url("/assets/fonts/Roboto/Roboto-Regular.ttf");
 }
 
 body {
@@ -45,6 +54,7 @@ body {
 }
 
 .about-me-right {
+  color: var(--text-gray);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -62,10 +72,51 @@ body {
   transition: opacity 0.8s;
 }
 
+.contact-info {
+  display: flex;
+  justify-content: center;
+}
+
+.icon-row {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+}
+
+.icon-row img {
+  margin: 18px;
+  max-width: 125px;
+  width: 50%;
+}
+
+.experience {
+  border-top: 1px solid black;
+  margin: 21px 0 0 10%;
+  padding-top: 20px;
+}
+
+.greeting {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.loading-gif {
+  background-color: white;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+.loading-gif img {
+  opacity: .35;
+}
+
 .portfolio-content {
   display: flex;
   justify-content: center;
   margin-top: 53px;
+  position: relative;
 }
 
 .portfolio-content .images {
@@ -126,8 +177,7 @@ body {
   background-color: var(--sun-orange);
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  font-family: Lato;
+  font-family: 'Lato';
   font-weight: 500;
   font-size: 16px;
   line-height: 25px;
@@ -167,7 +217,7 @@ body {
 .portfolio-item {
   color: var(--sun-fade);
   cursor: pointer;
-  margin: 0 24px;
+  display: block;
   text-align: center;
   text-decoration: none;
   width: 125px;
@@ -189,7 +239,7 @@ body {
   position: absolute;
   left: 50%;
   transition-timing-function: cubic-bezier(.4, 0,.2, 1);
-  width: 125px;
+  width: calc(100%/8);
   z-index: 1;
 }
 
@@ -293,6 +343,76 @@ body {
 
 .image img:last-child {
   margin-bottom: 0;
+}
+
+.resume {
+  display: flex;
+  color: var(--text-gray);
+  font-family: 'Lato';
+}
+
+.resume-divider {
+  height: 22px;
+  border-bottom: 1px solid #000;
+  margin-bottom: 35px;
+  width: 92%;
+}
+
+.resume-experience {
+  color: var(--resume-sub);
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  line-height: 1.5em;
+  margin: 0 0 21px 25%;
+}
+
+.resume-experience .title {
+  font-size: 21px;
+  color: black;
+}
+
+.resume-header {
+  color: black;
+  font-size: 26px;
+  line-height: 30px;
+  margin-top: 60px;
+}
+
+.resume-icons {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.resume-note {
+  font-size: 15px;
+}
+
+.resume-left {
+  background-color: var(--resume-gray);
+  padding: 75px 72px 55px 0;
+  width: 40%;
+}
+
+.resume-left .resume-header {
+  font-family: 'Roboto';
+  text-align: right;
+}
+
+.resume-right {
+  padding: 75px 0 0 72px;
+  width: 60%;
+}
+
+.resume-right .resume-experience {
+  margin-left: 0;
+}
+
+.resume-skill {
+  font-size: 20px;
+  line-height: 167.5%;
+  margin-left: 25%;
 }
 
 .row.wrapped:first-child {
