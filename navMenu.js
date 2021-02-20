@@ -23,7 +23,7 @@ export const placePortfolioHighlight = () => {
     .querySelector(".portfolio-item.current")
     .getBoundingClientRect();
   portfolioHighlight.style.width = `${width}px`;
-  portfolioHighlight.style.left = `${Math.floor(x)}.px`;
+  portfolioHighlight.style.left = `${Math.floor(x)}px`;
 };
 
 window.addEventListener("load", () => {
@@ -57,7 +57,7 @@ window.addEventListener("DOMContentLoaded", () => {
   infoHighlight.style.display = "block";
   infoHighlight.style.transition = "0.2s";
   placeInfoHighlight();
-  hamburgerButton.addEventListener("click", toggleHamburgerMenu);
+  hamburgerButton?.addEventListener("click", toggleHamburgerMenu);
   Array.from(hamburgerItems).forEach((el) =>
     el.addEventListener("click", highlightAndClose(el))
   );
