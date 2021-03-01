@@ -8,7 +8,8 @@
   <meta name="author" content="Ana Shioshita">
   <meta name="description" content="Ana Shioshita">
   <title>Ana Shioshita</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lato&display=block" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <link rel="stylesheet" href="../assets/stylesheets/base.css">
@@ -17,13 +18,6 @@
 <body>
   <script type="module" src="/navMenu.js"></script>
   <div class="content">
-    <div id="hamburger-button" class="hamburger-button">
-      <svg viewBox="0 0 38 29" width="38" height="29" class="hamburger-icon">
-        <rect width="38" height="5"></rect>
-        <rect y="12" width="38" height="5"></rect>
-        <rect y="24" width="38" height="5"></rect>
-      </svg>
-    </div>
     <div id="hamburger-menu" class="hamburger-menu">
       <div class="name-card">
         ANA SHIOSHITA
@@ -38,7 +32,7 @@
         <div class="hamburger-item info-item" data-url="resume/">RESUME</div>
       </div>
     </div>
-    <div class="nav">
+    <div class="nav sticky">
       <div class="name-card">
         ANA SHIOSHITA
       </div>
@@ -55,93 +49,14 @@
         <a class="info-item" href="/resume/">RESUME</a>
       </div>
     </div>
-    <div class="menu">
-      <div class="menu-item props">
-        <a class="portfolio-link" href="props/">
-          <div class="menu-title">Props</div>
-          <div class="menu-img props">
-            <div class="bw"></div>
-            <div class="color"></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="menu-item signage">
-        <a class="portfolio-link" href="signage/">
-          <div class="menu-title">Signage</div>
-          <div class="menu-img signage">
-            <div class="bw"></div>
-            <div class="color"></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="menu-item set-dec">
-        <a class="portfolio-link" href="set-dec/">
-          <div class="menu-title">Set Dec</div>
-          <div class="menu-img set-dec">
-            <div class="bw"></div>
-            <div class="color"></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="menu-item screens">
-        <a class="portfolio-link" href="screens/">
-          <div class="menu-title">Screens</div>
-          <div class="menu-img screens">
-            <div class="bw"></div>
-            <div class="color"></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="menu-item illustration">
-        <a class="portfolio-link" href="signage/">
-          <div class="menu-title">Illustration</div>
-          <div class="menu-img illustration">
-            <div class="bw"></div>
-            <div class="color"></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="menu-item vehicles">
-        <a class="portfolio-link" href="vehicles/">
-          <div class="menu-title">Vehicles</div>
-          <div class="menu-img vehicles">
-            <div class="bw"></div>
-            <div class="color"></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="menu-item photoshop">
-        <a class="portfolio-link" href="photoshop/">
-          <div class="menu-title">Photoshop</div>
-          <div class="menu-img photoshop">
-            <div class="bw"></div>
-            <div class="color"></div>
-          </div>
-        </a>
-      </div>
-
-      <div class="menu-item misc">
-        <a class="portfolio-link" href="misc/">
-          <div class="menu-title">Odds and Ends</div>
-          <div class="menu-img misc">
-            <div class="bw"></div>
-            <div class="color"></div>
-          </div>
-      </div>
-      </a>
-    </div>
   </div>
-  <div class="footer">
-    <a class="imdb" href="">IMDB</a>
+  <div class="contact-main">
+    <a class="imdb" href="https://www.imdb.com/name/nm7530972/" target="_blank" rel="noopener noreferrer">IMDB</a>
     <div class="contact-info">
-      <span>oriana.shioshita@gmail.com</span>
-      <span>303-709-7923</span>
+      <a href="mailto:oriana.shioshita@gmail.com">oriana.shioshita@gmail.com</a>
+    </div>
+    <div class="contact-info">
+      <a href="tel:303-709-7923">303-709-7923</a>
     </div>
   </div>
 </body>
