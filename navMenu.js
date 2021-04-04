@@ -57,6 +57,7 @@ window.addEventListener("DOMContentLoaded", () => {
   infoHighlight.style.display = "block";
   infoHighlight.style.transition = "0.2s";
   placeInfoHighlight();
+  window.addEventListener("resize", placeInfoHighlight);
   hamburgerButton?.addEventListener("click", toggleHamburgerMenu);
   Array.from(hamburgerItems).forEach((el) =>
     el.addEventListener("click", highlightAndClose(el))

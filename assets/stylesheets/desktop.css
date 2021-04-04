@@ -63,6 +63,12 @@
     z-index: 2;
   }
 
+  @media only screen and (max-width: 550px) {
+    .info-item, .info-highlight {
+      width: 120px;
+    }
+  }
+
   .loading-gif img {
     transform: translateY(20vh) scale(0.5);
   }
