@@ -23,6 +23,9 @@ window.addEventListener("DOMContentLoaded", () => {
 	);
 	modalContainer.addEventListener("click", hideImageModal);
 	placePortfolioHighlight();
+	if (window.innerWidth < 480) {
+		clearMarkupWidthStyles();
+	}
 });
 
 function calculateAR(item) {
@@ -76,6 +79,12 @@ function calculateHeight(row) {
 		default:
 			return null;
 	}
+}
+
+function clearMarkupWidthStyles() {
+	Array.from(document.querySelectorAll(".image")).forEach((el) => {
+    el.style.width = null;
+  });
 }
 
 function repaint() {
