@@ -73,6 +73,7 @@ function prependMenu() {
 function setActiveMenu(item = null) {
   const menuItem = item || activeMenuItem();
   menuItems.forEach((image) => image.classList.remove("active"));
+  Array.from(document.querySelectorAll(".portfolio-link")).forEach((el) => el.classList.remove("active"));
   menuItem.classList.add("active");
   const { bottom } = menus[menus.length - 1].getBoundingClientRect();
   const { top } = menus[0].getBoundingClientRect();
