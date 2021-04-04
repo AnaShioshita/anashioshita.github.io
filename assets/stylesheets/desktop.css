@@ -1,6 +1,8 @@
 @media only screen and (min-width: 481px) {
-  .contact-info span {
+  .contact-info a, .contact-info span {
+    color: #000;
     margin: 9px 14px;
+    text-decoration: none;
   }
 
   .footer {

@@ -77,6 +77,17 @@ body {
   justify-content: center;
 }
 
+.contact-main {
+  font-family: 'Lato';
+  font-size: 24px;
+  padding-top: 120px;
+}
+
+.contact-main .imdb {
+  font-size: 20px;
+  font-weight: 900;
+}
+
 .icon-row {
   display: flex;
   justify-content: center;
