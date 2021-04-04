@@ -290,7 +290,7 @@ body {
 }
 
 .modal-image img {
-  height: 100%;
+  height: auto;
   max-height: 98vh;
   max-width: 98vw;
 }
