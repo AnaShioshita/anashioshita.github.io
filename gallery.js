@@ -64,14 +64,14 @@ function calculateHeight(row) {
 			return null;
 		case 2:
 			[a, b] = ars;
-			return Math.floor(((width - 20) * a * b) / (a + b));
+			return Math.floor(((width - 40) * a * b) / (a + b));
 		case 3:
 			[a, b, c] = ars;
-			return Math.floor(((width - 40) * a * b * c) / (a * b + b * c + c * a));
+			return Math.floor(((width - 60) * a * b * c) / (a * b + b * c + c * a));
 		case 4:
 			[a, b, c, d] = ars;
 			return Math.floor(
-				((width - 60) * a * b * c * d) / (a * b * c + a * b * d + a * c * d + b * c * d)
+				((width - 80) * a * b * c * d) / (a * b * c + a * b * d + a * c * d + b * c * d)
 			);
 		default:
 			return null;
@@ -86,7 +86,7 @@ function repaint() {
 
 function setRowHeight(row) {
 	if (window.innerWidth >= 1200) {
-		row.classList.remove("wrapped");
+    row.classList.remove("wrapped");
 		row.style.height = row.dataset.height || `${calculateHeight(row)}px`;
 	} else if (window.innerWidth < 1200) {
 		row.classList.add("wrapped");
