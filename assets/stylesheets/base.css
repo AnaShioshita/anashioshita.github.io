@@ -141,6 +141,7 @@ body {
 .imdb {
   color: var(--sun-orange);
   display: block;
+  font-size: 18px;
   text-align: center;
   letter-spacing: 0.085em;
   text-decoration: none;
@@ -363,10 +364,20 @@ body {
   margin-bottom: 0;
 }
 
+.print-resume {
+  color: var(--text-gray);
+  cursor: pointer;
+  position: absolute;
+  text-decoration: none;
+  top: 16px;
+  right: 16px;
+}
+
 .resume {
   display: flex;
   color: var(--text-gray);
   font-family: 'Lato';
+  position: relative;
 }
 
 .resume-divider {
